@@ -1,0 +1,17 @@
+<h1>Ürün Listesi</h1>
+<a routerLink="add" class="btn btn-default">Ürün Ekle</a>
+<table class="table products-table">
+    <tr>
+        <th>Ürün Adı</th>
+        <th>Tutarı</th>
+        <th class="delete-column"></th>
+    </tr>
+    <tr *ngFor="let product of products">
+        <td><a [routerLink]="['edit', product.id]">{{product.name}}</a></td>
+        <td>TL{{product.price}}</td>
+        <td><a (click)="deleteProduct(product.id)" class="btn btn-xs btn-danger">Sil</a></td>
+    </tr>
+</table>
+<div class="view-side-form">
+    <router-outlet></router-outlet>
+</div>
